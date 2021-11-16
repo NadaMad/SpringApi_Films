@@ -3,11 +3,8 @@ package com.example.demo2film.dao;
 import com.example.demo2film.model.Film;
 import org.springframework.stereotype.Repository;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 @Repository
 public class FilmDAO implements IFillmDAO {
@@ -19,13 +16,13 @@ public class FilmDAO implements IFillmDAO {
     public FilmDAO(){
         this.films =new ArrayList<>(){
             {
-                add(new Film(1,"Titanicc","James Cameron","1998-01-8"));
-                add(new Film(2,"Alien","Ridley Scott","2003-9-23"));
-                add(new Film(3,"Star Wars, épisode IV : Un nouvel espoir","George Lucas","1978-3-9"));
-                add(new Film(4,"Spider-Man","Sam Raimi","2002-6-12"));
-                add(new Film(5,"Papillon","Franklin Schaffner","1974-3-3"));
-                add(new Film(6,"Leon","Luc Besson","1994-9-14"));
-                add(new Film(7,"Spider-Man 2","Sam Raimi","2004-11-30"));
+                add(new Film(1,"Titanicc","James Cameron","1998"));
+                add(new Film(2,"Alien","Ridley Scott","2003"));
+                add(new Film(3,"Star Wars, épisode IV : Un nouvel espoir","George Lucas","1978"));
+                add(new Film(4,"Spider-Man","Sam Raimi","2002"));
+                add(new Film(5,"Papillon","Franklin Schaffner","1974"));
+                add(new Film(6,"Leon","Luc Besson","1994"));
+                add(new Film(7,"Spider-Man 2","Sam Raimi","2004"));
             }
         };
     }
@@ -74,7 +71,7 @@ public class FilmDAO implements IFillmDAO {
     public  List<Film> findByDateSortie(String datesortie) {
         List<Film> anneeFilm=new ArrayList<>();
         for (Film film: films){
-            if(film.getDateSortie().contains(datesortie)==true ||film.getDateSortie().equals(datesortie)){
+            if(film.getAnneSortie().contains(datesortie)==true ||film.getAnneSortie().equals(datesortie)){
                 anneeFilm.add(film);
             }
         }
@@ -106,7 +103,7 @@ public class FilmDAO implements IFillmDAO {
     public void deleteByDate(String date) {
         System.out.println(date);
         System.out.println();
-        this.films.removeIf(film -> film.getDateSortie().equals(date));
+        this.films.removeIf(film -> film.getAnneSortie().equals(date));
     }
 
     /*

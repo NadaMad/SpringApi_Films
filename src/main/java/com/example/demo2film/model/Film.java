@@ -1,19 +1,18 @@
 package com.example.demo2film.model;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Film {
     private int id;
     private String titre;
     private String realisateur;
-    private String dateSortie;
+    private String anneSortie;
 
-    public Film(int id, String titre, String realisateur, String dateSortie) {
+    public Film(int id, String titre, String realisateur, String anneSortie) {
         this.id = id;
         this.titre = titre;
         this.realisateur = realisateur;
-        this.dateSortie= dateSortie;
+        this.anneSortie = anneSortie;
     }
 
     public int getId() {
@@ -40,13 +39,11 @@ public class Film {
         this.realisateur = realisateur;
     }
 
-    public void setDateSortie(String dateSortie) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        String dateString = format.format( dateSortie);
-        this.dateSortie = dateSortie;
+    public void setAnneSortie(String anneSortie) {
+        this.anneSortie = anneSortie;
     }
 
-    public String  getDateSortie() {
-        return dateSortie;
+    public String getAnneSortie() {
+        return anneSortie;
     }
 }
