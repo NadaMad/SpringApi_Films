@@ -90,19 +90,17 @@ public class FilmDAO implements IFillmDAO {
     @Override
     public void deleteByTitre(String titre) {
         String title=titre.toLowerCase();
-        this.films.removeIf(film -> title.equals(film.getTitre().toLowerCase()));
+        this.films.removeIf(film -> title.equals(film.getTitre().replace(" ","").toLowerCase()));
     }
 
     @Override
     public void deleteByRealisateur(String realisateur) {
         String reali=realisateur.toLowerCase();
-        this.films.removeIf(film -> reali.equals(film.getRealisateur().toLowerCase()));
+        this.films.removeIf(film -> reali.equals(film.getRealisateur().replace(" ","").toLowerCase()));
     }
 
     @Override
     public void deleteByDate(String date) {
-        System.out.println(date);
-        System.out.println();
         this.films.removeIf(film -> film.getAnneSortie().equals(date));
     }
 
@@ -111,7 +109,6 @@ public class FilmDAO implements IFillmDAO {
 
     @Override
     public void save(Film film) {
-        boolean idAlreadyexist=false;
         for (Film f:films) {
             if (f.getId() == film.getId()) {
                 film.setId(f.getId() + 1);
